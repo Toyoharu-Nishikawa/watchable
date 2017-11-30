@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+<script src="/plot/scripts/plotly-latest.min.js"></script>
+<script src="/plot/scripts/ace/ace.js" type = "text/javascript" charset="utf-8"></script>
+<script defer src="/plot/scripts/main.js"></script>
+<link rel="stylesheet" type="text/css" href="/plot/styles/main.css">
+</head>
+<body>
+<h1>ploter</h1>
+<ul class="maintab">
+  <li class="select">editor</li>
+  <li>graph</li>
+</ul>
+<ul class="main">
+  <li class="select">
+    <input type="button" value="draw" id="draw">
+    <div id="editor" style="height: 600px"></div>
+  </li>
+  <li>
+    <div id="plotly-div"></div>
+  </li>
+</ul>
+<script >
+  var editor = ace.edit('editor')
+  editor.setTheme("ace/theme/monokai")
+  editor.getSession().setMode("ace/mode/json")
+</script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+version: '2'
+services:
+  nginx:
+    image: nginx
+    volumes:
+      - ./public:/usr/share/nginx/html
+      - ./conf.d:/etc/nginx/conf.d
+      - /var/log/plotCarpet:/var/log/nginx
+    networks:
+      - neco_link
+networks:
+  neco_link:
+    external: true
