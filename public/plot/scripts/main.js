@@ -10,7 +10,12 @@ drawElement.addEventListener('click',function(){
   Plotly.newPlot('plotly-div',
     plotData.data,
     plotData.layout || null,
-    {editable:true}
+    {
+      editable: true,
+      showLink: false,
+      displaylogo: false,
+      modeBarButtonsToRemove: ['sendDataToCloud']
+    }
   );
   let draw = document.createEvent("HTMLEvents");
   draw.initEvent("click", true, false);
@@ -30,6 +35,8 @@ tabElements.forEach(function(value,index,array){
       value2.className=null;
     })
     var p = e.target.parentElement;
+    
+    //get index of clicked element
     var index = Array.prototype.indexOf.call(p.children, e.target);
     console.log(index)
     mainElements[index].className="select";
