@@ -36,18 +36,18 @@ var findDocuments = function(client, dbName, collectionName, response, query) {
  }
 
 //conection URL
-const url = 'mongodb://wachable_mongo_1:27017';
-const dbName = 'wachable';
+const url = 'mongodb://watchable_mongo_1:27017';
+const dbName = 'watchable';
 const collectionName = 'plotly';
 app.set('port', 5000);
 app.use(express.static(__dirname + '/public'));
 
-app.get('/wachable/test', function(request, response) {
+app.get('/watchable/test', function(request, response) {
   //use connect method to connect to server
   response.send('this is test page of node js ');
 });
 
-app.get('/wachable/find', function(request, response) {
+app.get('/watchable/find', function(request, response) {
   //use connect method to connect to server
   MongoClient.connect(url, (error,client)=>{
     assert.equal(null,error)
@@ -56,7 +56,7 @@ app.get('/wachable/find', function(request, response) {
     findDocuments(client, dbName, collectionName, response, query);
   });
 });
-app.all('/wachable/data_registry', function(request, response) {
+app.all('/watchable/data_registry', function(request, response) {
   //use connect method to connect to server
   MongoClient.connect(url, (error,client)=>{
     assert.equal(null,error)
