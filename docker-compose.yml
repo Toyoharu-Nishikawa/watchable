@@ -13,7 +13,6 @@ services:
     image: node
     volumes:
       - ./src:/usr/src
-      - ./root:/root
     working_dir: '/usr/src'
     command: npm start
     networks:
