@@ -5,9 +5,27 @@ services:
     volumes:
       - ./public:/usr/share/nginx/html
       - ./conf.d:/etc/nginx/conf.d
-      - /var/log/plotCarpet:/var/log/nginx
+      - /var/log/wachable:/var/log/nginx
     networks:
       - neco_link
+      - default
+  node:
+    image: node
+    volumes:
+      - ./src:/usr/src
+      - ./root:/root
+    working_dir: '/usr/src'
+    command: npm start
+    networks:
+      - default 
+  mongo:
+    image: mongo
+    volumes:
+      - /var/data/wachable_mongo/db:/data/db
+    ports:
+      - "27017:27017"
+    networks:
+      - default 
 networks:
   neco_link:
     external: true

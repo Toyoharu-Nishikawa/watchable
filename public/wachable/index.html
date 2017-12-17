@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+<title>Wachable</title>
+<script src="scripts/plotly-latest.min.js"></script>
+<script src="scripts/ace/ace.js" type = "text/javascript" charset="utf-8"></script>
+<script defer src="scripts/main.js"></script>
+<link rel="stylesheet" type="text/css" href="styles/main.css">
+</head>
+<body>
+<h1>Wachable</h1>
+<ul class="maintab">
+  <li class="select">editor</li>
+  <li>graph</li>
+</ul>
+<ul class="main">
+  <li class="select">
+    <input type="button" value="draw" id="draw">
+    <div id="editor" style="height: 600px"></div>
+  </li>
+  <li>
+    <div id="plotly-div"></div>
+  </li>
+</ul>
+<script >
+  var editor = ace.edit('editor')
+  editor.setTheme("ace/theme/monokai")
+  editor.getSession().setMode("ace/mode/json")
+</script>
+</body>
+</html>
