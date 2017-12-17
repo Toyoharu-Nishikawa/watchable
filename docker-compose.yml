@@ -5,7 +5,7 @@ services:
     volumes:
       - ./public:/usr/share/nginx/html
       - ./conf.d:/etc/nginx/conf.d
-      - /var/log/wachable:/var/log/nginx
+      - /var/log/watchable:/var/log/nginx
     networks:
       - neco_link
       - default
@@ -20,7 +20,7 @@ services:
   mongo:
     image: mongo
     volumes:
-      - /var/data/wachable_mongo/db:/data/db
+      - /var/data/watchable_mongo/db:/data/db
     ports:
       - "27017:27017"
     networks:
