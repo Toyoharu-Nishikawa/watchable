@@ -42,12 +42,12 @@ const collectionName = 'plotly';
 app.set('port', 5000);
 app.use(express.static(__dirname + '/public'));
 
-app.get('/watchable/test', function(request, response) {
+app.get('/test', function(request, response) {
   //use connect method to connect to server
   response.send('this is test page of node js ');
 });
 
-app.get('/watchable/find', function(request, response) {
+app.get('/find', function(request, response) {
   //use connect method to connect to server
   MongoClient.connect(url, (error,client)=>{
     assert.equal(null,error)
@@ -56,7 +56,7 @@ app.get('/watchable/find', function(request, response) {
     findDocuments(client, dbName, collectionName, response, query);
   });
 });
-app.all('/watchable/data_registry', function(request, response) {
+app.all('/data_registry', function(request, response) {
   //use connect method to connect to server
   MongoClient.connect(url, (error,client)=>{
     assert.equal(null,error)
