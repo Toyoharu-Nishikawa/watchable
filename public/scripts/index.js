@@ -4,6 +4,20 @@ var mainElements = document.querySelectorAll(".main > li");
 
 var req = new XMLHttpRequest();
 
+var editor = ace.edit('editor')
+editor.setTheme("ace/theme/monokai")
+editor.getSession().setOptions({
+  mode: "ace/mode/json",
+  tabSize: 2,
+  useSoftTabs: true
+});
+//editor.setKeyboardHandler("ace/keyboard/vim");
+editor.setOptions({
+  fontSize: "13pt"
+});
+editor.$blockScrolling = Infinity; 
+editor.setValue( window.localStorage.getItem("remember"));
+
 var control = {
   pushButton: function(){
       let self = this;
@@ -27,6 +41,7 @@ var control = {
 drawElement.addEventListener('click',function(){
   let editorData = editor.getValue();
   let plotData = JSON.parse(editorData);
+  window.localStorage.setItem("remember",editorData);
   control.send(editorData);
   console.log(plotData.data)
   Plotly.newPlot('plotly-div',
