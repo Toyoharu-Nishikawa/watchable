@@ -16,7 +16,7 @@ editor.setOptions({
   fontSize: "13pt"
 });
 editor.$blockScrolling = Infinity; 
-editor.setValue( window.localStorage.getItem("remember"));
+editor.setValue( window.localStorage.getItem("watchableRemember")||"");
 
 var control = {
   pushButton: function(){
@@ -41,7 +41,7 @@ var control = {
 drawElement.addEventListener('click',function(){
   let editorData = editor.getValue();
   let plotData = JSON.parse(editorData);
-  window.localStorage.setItem("remember",editorData);
+  window.localStorage.setItem("watchableRemember",editorData);
   control.send(editorData);
   console.log(plotData.data)
   Plotly.newPlot('plotly-div',
